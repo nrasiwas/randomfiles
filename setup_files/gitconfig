@@ -1,0 +1,21 @@
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[user]
+	name = Nikhil Rasiwasia
+	email = nikhil.rasiwasia@snapdeal.com
+[core]
+	excludesfile = /Users/nikux/.gitignore
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto

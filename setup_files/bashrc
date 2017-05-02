@@ -1,0 +1,7 @@
+export PYTHONPATH=$PYTHONPATH:~/code/caffe/python
+
+
+. /Users/nikux/torch/install/bin/torch-activate
+
+
+. /Users/nikux/torch/install/bin/torch-activate

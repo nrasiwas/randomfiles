@@ -1,0 +1,64 @@
+
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+syntax on
+set noai
+set tabstop=4
+set shiftwidth=4
+filetype indent on
+filetype plugin on
+
+map - <c-w>w 
+map ,. :s/^. //<CR> :nohlsearch <CR> 
+map ,, :s/^/% /<CR> :nohlsearch <CR>
+map ,m :s/^/# /<CR> :nohlsearch <CR>
+map cc v:s!^!//!g <CR> :nohlsearch <CR>
+map cx v:s!^\s*//!!g <CR>v=<CR>:nohlsearch<CR>
+vmap cc :s!^!//!g <CR> :nohlsearch <CR>
+vmap cx :s!^\s*//!!g <CR>v=<CR>:nohlsearch<CR>
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
+
+map <F12> n.
+
+set laststatus=2
+set scrolloff=4
+set incsearch
+set backspace=indent,eol,start
+set hlsearch
+set pastetoggle=<F9>
+set syntax=on 
+set ruler
+
+noremap  <F8> :call Tex_compile()<CR>
+noremap  <F6> :call Tex_full()<CR>
+noremap  <F7> :call Tex_pdf()<CR>
+
+function! Tex_compile()
+:!latex %:r
+endfunction
+
+function! Tex_full()
+:!latex -interaction=nonstopmode  %:r
+:!bibtex %:r
+:!bibtex %:r
+:!latex -interaction=nonstopmode %:r
+:!latex %:r
+:!xdvi -s 6 -expert %:r.dvi & 
+endfunction
+
+function! Tex_pdf()
+:!dvips -P cmz -t letter -Pdownload35 -o %:r.ps %:r.dvi
+:!ps2pdf %:r.ps %:r.pdf
+endfunction
+
+autocmd BufEnter * silent! lcd %:p:h
+filetype  plugin indent on
+autocmd BufRead,BufNewFile *.sage,*.pyx,*.spyx set filetype=python
+autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd Filetype js setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd Filetype cfg setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd Filetype js setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+autocmd Filetype html setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype htmldjango setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd Filetype css setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+

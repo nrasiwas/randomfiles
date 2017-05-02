@@ -1,0 +1,31 @@
+# Add Homebrew `/usr/local/bin` and User `~/bin` to the `$PATH`
+PATH=/usr/local/bin:$PATH
+PATH=$HOME/bin:$PATH
+PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+export PATH
+
+# Load the shell dotfiles, and then some:
+# * ~/.path can be used to extend `$PATH`.
+# * ~/.extra can be used for other settings you don’t want to commit.
+for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
+  [ -r "$file" ] && source "$file"
+done
+unset file
+
+alias ipy='ipython qtconsole --ConsoleWidget.font_family="Consolas" --ConsoleWidget.font_size=13'
+
+export PYTHONPATH=/opt/caffe/python:$PYTHONPATH
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+# added by Anaconda 2.2.0 installer
+export PATH="/opt/anaconda/bin:$PATH"
+
+export HISTTIMEFORMAT="%d/%m/%Y %T "
+
+export GOOGLE_APPLICATION_CREDENTIALS="/Users/nikux/Documents/MyProject-fb3e14e921f6.json"
+
+export LD_LIBRARY_PATH=/usr/local/lib:'/opt/anaconda/lib':$LD_LIBRARY_PATH
+export DYLD_FALLBACK_LIBRARY_PATH='/opt/anaconda/lib':$DYLD_FALLBACK_LIBRARY_PATH
+

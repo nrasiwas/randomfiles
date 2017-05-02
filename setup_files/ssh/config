@@ -1,0 +1,24 @@
+Host 4a
+        HostName 10.41.64.196
+        User nr7885
+        ForwardAgent yes
+
+Host 2a
+        HostName 10.41.64.195
+        User nr7885
+        ForwardAgent yes
+
+Host 4b
+        HostName 10.41.64.203
+        User nr7885
+        ForwardAgent yes
+
+Host 4c
+        HostName 10.41.64.104
+        User nr7885
+        ForwardAgent yes
+
+Host la
+        HostName 10.41.64.207
+        User nr7885
+        ForwardAgent yes
