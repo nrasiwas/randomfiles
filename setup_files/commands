@@ -1,0 +1,11 @@
+cp vimrc ~/.vimrc
+cp bashrc ~/.bashrc
+cp bash_profile ~/.bash_profile
+cp aliases ~/.aliases
+cp gitconfig ~/.gitconfig
+cp gitignore ~/.gitignore
+mkdir ~/.ssh
+cp ssh/* ~/.ssh/
+chmod 700 ~/.ssh
+cd ~/.ssh
+chmod 600 id_rsa id_common_rsa id_ds_rsa id_rsa_ashrut 
